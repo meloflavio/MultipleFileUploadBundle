@@ -1,6 +1,6 @@
 <?php
 
-namespace Liplex\Bundle\MultipleFileUploadBundle;
+namespace Liplex\MultipleFileUploadBundle;
 
 use Sonata\CoreBundle\Form\FormHelper;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -33,7 +33,7 @@ class LiplexMultipleFileUploadBundle extends Bundle
     public function registerFormMapping()
     {
         FormHelper::registerFormTypeMapping([
-            'multiple_file_upload' => 'Liplex\Bundle\MultipleFileUploadBundle\Form\Type\MultipleFileUploadType',
+            'multiple_file_upload' => 'Liplex\MultipleFileUploadBundle\Form\Type\MultipleFileUploadType',
         ]);
     }
 }
