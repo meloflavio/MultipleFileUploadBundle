@@ -1,6 +1,6 @@
 <?php
 
-namespace Liplex\Bundle\MultipleFileUploadBundle\Controller;
+namespace Liplex\MultipleFileUploadBundle\Controller;
 
 use Liplex\Bundle\MultipleFileUploadBundle\Repository\MultipleFileUploadRepository;
 use Sonata\MediaBundle\Entity\BaseMedia;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Liplex\Bundle\MultipleFileUploadBundle\Repository;
+namespace Liplex\MultipleFileUploadBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

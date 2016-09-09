@@ -1,6 +1,6 @@
 <?php
 
-namespace Liplex\Bundle\MultipleFileUploadBundle\Form\Type;
+namespace Liplex\MultipleFileUploadBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;

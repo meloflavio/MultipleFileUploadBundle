@@ -1,6 +1,6 @@
 <?php
 
-namespace Liplex\Bundle\MultipleFileUploadBundle\DependencyInjection;
+namespace Liplex\MultipleFileUploadBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
