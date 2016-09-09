@@ -151,15 +151,6 @@ class MultipleFileUploadController extends Controller
     /**
      * Show image action.
      *
-     * @Nelmio\ApiDoc(
-     *  section="Multiple image upload",
-     *  description="Show image",
-     *  statusCodes={
-     *      200="Returned when successful",
-     *      404="Returned when image can not be found"
-     *  }
-     * )
-     *
      * @param int $id ID
      *
      * @return BinaryFileResponse
@@ -198,7 +189,7 @@ class MultipleFileUploadController extends Controller
      *
      * @param string $ids IDs
      *
-     * @return BinaryFileResponse
+     * @return JsonResponse
      *
      * @throws NotFoundHttpException Thrown if file can not be found
      */
