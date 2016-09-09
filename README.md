@@ -5,7 +5,7 @@
 ```
 $bundles = [
     ...
-    new Liplex\Bundle\MultipleFileUploadBundle\LiplexMultipleFileUploadBundle(),
+    new Liplex\MultipleFileUploadBundle\LiplexMultipleFileUploadBundle(),
 ];
 ```
 
@@ -119,7 +119,7 @@ for the generation of the media entities. Therefore you have to set your custom 
 Repositories have to extend the `MultipleFileUploadRepository` repository...
 
 ```
-use Liplex\Bundle\MultipleFileUploadBundle\Repository\MultipleFileUploadRepository;
+use Liplex\MultipleFileUploadBundle\Repository\MultipleFileUploadRepository;
 
 class YourRepository extends MultipleFileUploadRepository
 ```
