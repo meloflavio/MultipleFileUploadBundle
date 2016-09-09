@@ -1,0 +1,25 @@
+## Multiple image upload
+api_multiple_upload_file:
+    path:     /api/multiple-file-upload
+    defaults: { _controller: 'LiplexMultipleFileUploadBundle:MultipleFileUpload:multipleImageUpload' }
+    methods:  [POST]
+
+api_multiple_show_image:
+    path:     /api/multiple-file-upload/image/{id}
+    defaults: { _controller: 'LiplexMultipleFileUploadBundle:MultipleFileUpload:showImage' }
+    methods:  [GET]
+
+api_multiple_get_file:
+    path:     /api/multiple-file-upload/file/{id}
+    defaults: { _controller: 'LiplexMultipleFileUploadBundle:MultipleFileUpload:getFile' }
+    methods:  [GET]
+
+api_multiple_get_filenames:
+    path:     /api/multiple-file-upload/media/{ids}/name
+    defaults: { _controller: 'LiplexMultipleFileUploadBundle:MultipleFileUpload:getFileNames' }
+    methods:  [GET]
+
+api_multiple_delete_media:
+    path:     /api/multiple-file-upload/media/{id}
+    defaults: { _controller: 'LiplexMultipleFileUploadBundle:MultipleFileUpload:deleteMedia' }
+    methods:  [DELETE]

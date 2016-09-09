@@ -1,0 +1,107 @@
+{% extends 'SonataDoctrineORMAdminBundle:Form:form_admin_fields.html.twig' %}
+{% block multiple_file_upload_widget %}
+    {% if sonata_admin.admin.subject.id %}
+        <div class="multiple-file-upload"
+             ng-controller="MultipleFileUploadCtrl as ctrl"
+             ng-init="ctrl.medias = [{% spaceless %}
+             {% if form.vars.single_upload %}
+                 {% if value %}{{ value.id }}{% endif %}
+             {% else %}
+                {% for media in value %}{{ media.id }}{% if not loop.last %},{% endif %}{% endfor %}
+             {% endif %}
+             {% endspaceless %}];ctrl.singleUpload={% if form.vars.single_upload %}true{% else %}false{% endif %};{% spaceless %}
+             {% endspaceless %}ctrl.allowedExtensionsFilter='{{ form.vars.allowed_extensions_filter }}';{% spaceless %}
+             {% endspaceless %}ctrl.allowImages='{{ form.vars.allow_images }}';{% spaceless %}
+             {% endspaceless %}ctrl.allowFiles='{{ form.vars.allow_files }}';{% spaceless %}
+             {% endspaceless %}ctrl.entity='{{ sonata_admin.admin.classnameLabel }}';{% spaceless %}
+             {% endspaceless %}ctrl.id='{{ sonata_admin.admin.subject.id }}';{% spaceless %}
+             {% endspaceless %}ctrl.field='{{ sonata_admin.field_description.fieldName }}';{% spaceless %}
+             {% if form.vars.allow_files %}
+                ctrl.initFileNames();
+             {% endif %}
+             {% if not form.vars.read_only %}
+                ctrl.initUploader();
+             {% endif %}
+             {% endspaceless %}"
+        >
+            <div class="row" ng-if="ctrl.allowImages">
+                <div class="col-md-2 col-sm-4 col-xs-6" ng-repeat="imageId in ctrl.medias">
+                    <div class="button-container">
+                        <img ng-src="/api/multiple-file-upload/image/[[ imageId ]]" class="thumbnail" alt="Das Bild konnte nicht geladen werden" />
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="ctrl.removeMedia(imageId)" ng-show="!ctrl.singleUpload">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="files" ng-if="ctrl.allowFiles">
+                <div class="file" ng-repeat="fileId in ctrl.medias">
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-default" href="/api/multiple-file-upload/file/[[ fileId ]]" target="_blank">[[ ctrl.fileNames[fileId] ]]</a>
+                        <button type="button" class="btn btn-danger" ng-click="ctrl.removeMedia(fileId)" ng-show="!ctrl.singleUpload">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% if not form.vars.read_only %}
+            <div class="upload-area"
+                 nv-file-drop=""
+                 uploader="uploader"
+                 options="{url: '{{ path('api_multiple_upload_file') }}'}"
+            >
+                <div class="well"
+                     nv-file-over=""
+                     uploader="uploader"
+                >
+                    <span ng-show="ctrl.singleUpload && ctrl.allowImages">Legen Sie das Bild hier ab</span>
+                    <span ng-show="!ctrl.singleUpload && ctrl.allowImages">Legen Sie die Bilder hier ab</span>
+                    <span ng-show="ctrl.singleUpload && ctrl.allowFiles">Legen Sie die Datei hier ab</span>
+                    <span ng-show="!ctrl.singleUpload && ctrl.allowFiles">Legen Sie die Dateien hier ab</span>
+                </div>
+                <div class="process" ng-show="uploader.queue.length > 0">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th width="80%">Name</th>
+                            <th>Aktionen</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in uploader.queue">
+                            <td><strong>[[ item.file.name ]]</strong></td>
+                            <td nowrap>
+                                <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                    <span class="glyphicon glyphicon-trash"></span> Löschen
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <div>
+                            Prozess:
+                            <div class="progress" style="">
+                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                            <span class="glyphicon glyphicon-upload"></span> Hochladen
+                        </button>
+                        <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Abbrechen
+                        </button>
+                    </div>
+                </div>
+                <span class="help-block sonata-ba-field-help">
+                    Erlaubt sind Dateien vom Typ {% for extension in form.vars.allowed_extensions %}<strong>{{ extension }}</strong>{% if not loop.last %}, {% endif %}{% endfor %}
+                </span>
+            </div>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="multiple-file-upload">
+            <div class="alert alert-info">Ein Bild oder eine Datei kann erst hochgeladen werden sobald das Element gespeichert wurde.</div>
+        </div>
+    {% endif %}
+{% endblock %}

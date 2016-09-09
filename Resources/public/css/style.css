@@ -1,0 +1,38 @@
+.upload-area {
+    margin-bottom: 5px;
+}
+.upload-area .btn {
+    margin-right: 10px;
+}
+.upload-area .well {
+    margin: 0 0 10px;
+    border: dotted 3px lightgray;
+}
+.upload-area .help-block {
+    margin-top: 10px;
+}
+.upload-area .nv-file-over {
+    border: dotted 3px black;
+}
+.multiple-file-upload .button-container {
+    position: relative;
+    display: inline-block;
+}
+.multiple-file-upload .button-container .btn {
+    position: absolute;
+    right: 3px;
+    bottom: 13px;
+}
+.multiple-file-upload .files .file {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+}
+.form-group.checkbox {
+    margin-top: 30px;
+}
+.thumbnail {
+    margin: 10px 0;
+}
+.dropdown-menu.qr-code {
+    min-width: 70px;
+}
