@@ -2,7 +2,7 @@
 
 namespace Liplex\MultipleFileUploadBundle\Controller;
 
-use Liplex\Bundle\MultipleFileUploadBundle\Repository\MultipleFileUploadRepository;
+use Liplex\MultipleFileUploadBundle\Repository\MultipleFileUploadRepository;
 use Sonata\MediaBundle\Entity\BaseMedia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
