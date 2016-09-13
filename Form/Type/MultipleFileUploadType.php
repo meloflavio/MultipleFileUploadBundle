@@ -20,6 +20,7 @@ class MultipleFileUploadType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
+            'read_only' => false,
             'single_upload' => false,
             'empty_data' => null,
             'allow_images' => false,
@@ -64,6 +65,7 @@ class MultipleFileUploadType extends AbstractType
             'allow_files' => $options['allow_files'],
             'allowed_extensions' => $allowedExtensions,
             'allowed_extensions_filter' => $allowedExtensionsFilter,
+            'read_only' => $options['read_only']
         ]);
     }
 

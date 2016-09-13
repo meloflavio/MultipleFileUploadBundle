@@ -178,15 +178,6 @@ class MultipleFileUploadController extends Controller
     /**
      * Get file name action.
      *
-     * @Nelmio\ApiDoc(
-     *  section="Multiple image upload",
-     *  description="Get file name",
-     *  statusCodes={
-     *      200="Returned when successful",
-     *      404="Returned when image can not be found"
-     *  }
-     * )
-     *
      * @param string $ids IDs
      *
      * @return JsonResponse
@@ -213,15 +204,6 @@ class MultipleFileUploadController extends Controller
 
     /**
      * Get file action.
-     *
-     * @Nelmio\ApiDoc(
-     *  section="Multiple image upload",
-     *  description="Get file",
-     *  statusCodes={
-     *      200="Returned when successful",
-     *      404="Returned when image can not be found"
-     *  }
-     * )
      *
      * @param int $id ID
      *
@@ -253,15 +235,6 @@ class MultipleFileUploadController extends Controller
 
     /**
      * Delete media action.
-     *
-     * @Nelmio\ApiDoc(
-     *  section="Multiple image upload",
-     *  description="Delete media",
-     *  statusCodes={
-     *      200="Returned when successful",
-     *      404="Returned when image can not be found"
-     *  }
-     * )
      *
      * @param int $id ID
      *
