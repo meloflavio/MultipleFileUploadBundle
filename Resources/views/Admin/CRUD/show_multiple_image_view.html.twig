@@ -4,7 +4,7 @@
     <div class="multiple-image-view"
          ng-controller="MultipleFileUploadCtrl as ctrl"
          ng-init="ctrl.images = [{% spaceless %}
-         {% if form.vars.single_upload %}
+         {% if (form.vars.single_upload is defined and form.vars.single_upload) or (field_description.options.single_upload is defined and field_description.options.single_upload) %}
              {% if value %}{{ value.id }}{% endif %}
          {% else %}
             {% for image in value %}{{ image.id }}{% if not loop.last %},{% endif %}{% endfor %}
