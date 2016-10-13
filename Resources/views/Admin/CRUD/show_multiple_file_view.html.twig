@@ -1,0 +1,23 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field %}
+    {% if form.vars.single_upload %}
+        <a target="_blank" href="/api/multiple-file-upload/file/{{ value.id }}">
+            {% if field_description.options.safe %}
+                {{ value|raw }}
+            {% else %}
+                {{ value }}
+            {% endif %}
+        </a>
+    {% else %}
+        {% for file in value %}
+            <a target="_blank" href="/api/multiple-file-upload/file/{{ file.id }}">
+                {% if field_description.options.safe %}
+                    {{ file|raw }}
+                {% else %}
+                    {{ file }}
+                {% endif %}
+            </a>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

@@ -71,7 +71,7 @@ There are a few prerequisites for the bundle to work properly.
 
 ### Additional configuration
 
-You have to set those two templates in the `sonata_doctrine_orm_admin` configuration.
+You have to set those templates in the `sonata_doctrine_orm_admin` configuration.
 
 ```
 sonata_doctrine_orm_admin:
@@ -81,6 +81,7 @@ sonata_doctrine_orm_admin:
         types:
             show:
                 multiple_image_view: 'LiplexMultipleFileUploadBundle:Admin/CRUD:show_multiple_image_view.html.twig'
+                multiple_file_view: 'LiplexMultipleFileUploadBundle:Admin/CRUD:show_multiple_file_view.html.twig'
 ```
 
 ### Routing
