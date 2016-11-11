@@ -47,6 +47,14 @@
                 }
             });
 
+            uploader.onAfterAddingFile = function() {
+                vm.disableSaveButtons();
+            };
+
+            uploader.onAfterRemoveFile = function() {
+                vm.enableSaveButtons();
+            };
+
             uploader.onSuccessItem = function (fileItem, response, status, headers) {
                 responseMediaId = response.mediaId;
 
@@ -60,13 +68,26 @@
                 if (vm.allowFiles) {
                     vm.initFileNames();
                 }
-
-                console.info('onSuccessItem', fileItem, response, status, headers);
             };
 
             uploader.onCompleteAll = function() {
                 uploader.clearQueue();
+                vm.enableSaveButtons();
             };
+        };
+
+        vm.disableSaveButtons = function() {
+            var $button = $('button[type=submit].btn-success');
+            $button.prop('title', 'Es befinden sich noch Elemente in der Upload Warteschlange');
+            $button.prop('disabled', true);
+        };
+
+        vm.enableSaveButtons = function() {
+            if ($scope.uploader.queue.length == 0) {
+                var $button = $('button[type=submit].btn-success');
+                $button.removeAttr('title');
+                $button.prop('disabled', false);
+            }
         };
 
         vm.initFileNames = function() {

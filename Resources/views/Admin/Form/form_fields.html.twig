@@ -71,7 +71,7 @@
                             <tr ng-repeat="item in uploader.queue">
                                 <td><strong>[[ item.file.name ]]</strong></td>
                                 <td nowrap>
-                                    <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                    <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove();uploader.onAfterRemoveFile()">
                                         <span class="fa fa-trash-o"></span> Löschen
                                     </button>
                                 </td>
