@@ -16,5 +16,7 @@ process:
   label:
     progress: Progress
 alert:
+  wrongFormat: The file format you are trying to upload is not supported.
+  maxFileSize: The file size of your upload exceeds the allowed limit of
   allowedFileTypes: Supported data formats are
   saveFirst: An image or a file can only be uploaded once the element is saved.

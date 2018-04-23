@@ -25,6 +25,7 @@ class MultipleFileUploadType extends AbstractType
             'empty_data' => null,
             'allow_images' => false,
             'allow_files' => false,
+            'max_file_size' => 5,
             'image_extensions' => [
                 'jpg',
                 'png',
@@ -65,6 +66,7 @@ class MultipleFileUploadType extends AbstractType
             'allow_files' => $options['allow_files'],
             'allowed_extensions' => $allowedExtensions,
             'allowed_extensions_filter' => $allowedExtensionsFilter,
+            'max_file_size' => $options['max_file_size'],
             'read_only' => $options['read_only']
         ]);
     }

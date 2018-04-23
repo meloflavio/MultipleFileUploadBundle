@@ -16,5 +16,7 @@ process:
   label:
     progress: Prozess
 alert:
+  wrongFormat: Das Format der Upload-Datei wird nicht unterstützt.
+  maxFileSize: Die Größe der Upload-Datei liegt über der zulässigen Grenze von
   allowedFileTypes: Erlaubt sind Dateien vom Typ
   saveFirst: Ein Bild oder eine Datei kann erst hochgeladen werden sobald das Element gespeichert wurde.

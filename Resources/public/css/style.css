@@ -36,3 +36,6 @@
 .dropdown-menu.qr-code {
     min-width: 70px;
 }
+.multiple-file-upload .alert {
+    margin-bottom: 10px;
+}

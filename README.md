@@ -46,6 +46,13 @@ liplex_multiple_file_upload:
     'allow_files' => true,
 ])
 
+// Set maximal file size to 20 MB
+->add('files', 'multiple_file_upload', [
+    'label' => 'label.files',
+    'max_file_size' => 20,
+    'allow_files' => true,
+])
+
 // Single upload
 ->add('image', 'multiple_file_upload', [
     'label' => 'label.image',
