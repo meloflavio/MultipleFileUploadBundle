@@ -94,6 +94,8 @@ liplex_multiple_file_upload:
 
 ### Standard layout
 
+Add the following overwrites for the `standard_layout.html.twig` file.
+
 ```
 {% block stylesheets %}
     {{  parent() }}
@@ -108,6 +110,8 @@ liplex_multiple_file_upload:
     <script src="{{ asset('bundles/liplexmultiplefileupload/js/multiple-file-upload/app.js') }}" type="text/javascript"></script>
     <script src="{{ asset('bundles/liplexmultiplefileupload/js/multiple-file-upload/controllers.js') }}" type="text/javascript"></script>
 {% endblock %}
+
+{% block body_attributes %}ng-app="{% block angularApp %}app{% endblock %}"{% endblock %}
 ```
 
 ### Media
