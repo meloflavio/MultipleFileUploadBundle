@@ -1,23 +1,23 @@
 {% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
 
-{% block field%}
-    <div class="multiple-image-view"
-         ng-controller="MultipleFileUploadCtrl as ctrl"
-         ng-init="ctrl.images = [{% spaceless %}
-         {% if (form.vars.single_upload is defined and form.vars.single_upload) or (field_description.options.single_upload is defined and field_description.options.single_upload) %}
-             {% if value %}{{ value.id }}{% endif %}
-         {% else %}
-            {% for image in value %}{{ image.id }}{% if not loop.last %},{% endif %}{% endfor %}
-         {% endif %}
-         {% endspaceless %}];"
-    >
-        <div class="row">
-            {% if value|length == 0 %}-{% endif %}
-            <div class="col-md-2 col-sm-4 col-xs-6" ng-repeat="imageId in ctrl.images">
-                <div class="button-container">
-                    <img ng-src="/api/multiple-file-upload/image/[[ imageId ]]" class="thumbnail" />
-                </div>
-            </div>
+{% block field %}
+  <div class="multiple-image-view"
+    ng-controller="MultipleFileUploadCtrl as ctrl"
+    ng-init="ctrl.images = [{% spaceless %}
+      {% if (form.vars.single_upload is defined and form.vars.single_upload) or (field_description.options.single_upload is defined and field_description.options.single_upload) %}
+        {% if value %}{{ value.id }}{% endif %}
+      {% else %}
+        {% for image in value %}{{ image.id }}{% if not loop.last %},{% endif %}{% endfor %}
+      {% endif %}
+      {% endspaceless %}];"
+  >
+    <div class="row">
+      {% if value|length == 0 %}-{% endif %}
+      <div class="col-md-2 col-sm-4 col-xs-6" ng-repeat="imageId in ctrl.images">
+        <div class="button-container">
+          <img ng-src="/api/multiple-file-upload/image/[[ imageId ]]" class="thumbnail"/>
         </div>
+      </div>
     </div>
+  </div>
 {% endblock %}

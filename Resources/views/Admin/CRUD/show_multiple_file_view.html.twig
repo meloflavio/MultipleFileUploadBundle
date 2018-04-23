@@ -1,23 +1,29 @@
 {% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
 
 {% block field %}
-    {% if form.vars.single_upload %}
-        <a target="_blank" href="/api/multiple-file-upload/file/{{ value.id }}">
-            {% if field_description.options.safe %}
-                {{ value|raw }}
-            {% else %}
-                {{ value }}
-            {% endif %}
+  {% if (form.vars.single_upload is defined and form.vars.single_upload) or (field_description.options.single_upload is defined and field_description.options.single_upload) %}
+      <a class="btn btn-secondary"
+         target="_blank"
+         href="/api/multiple-file-upload/file/{{ value.id }}">
+          <span class="fa fa-download"></span>
+        {% if field_description.options.safe %}
+          {{ value|raw }}
+        {% else %}
+          {{ value }}
+        {% endif %}
+      </a>
+  {% else %}
+    {% for file in value %}
+        <a class="btn btn-secondary"
+           target="_blank"
+           href="/api/multiple-file-upload/file/{{ file.id }}">
+            <span class="fa fa-download"></span>
+          {% if field_description.options.safe %}
+            {{ file|raw }}
+          {% else %}
+            {{ file }}
+          {% endif %}
         </a>
-    {% else %}
-        {% for file in value %}
-            <a target="_blank" href="/api/multiple-file-upload/file/{{ file.id }}">
-                {% if field_description.options.safe %}
-                    {{ file|raw }}
-                {% else %}
-                    {{ file }}
-                {% endif %}
-            </a>
-        {% endfor %}
-    {% endif %}
+    {% endfor %}
+  {% endif %}
 {% endblock %}
