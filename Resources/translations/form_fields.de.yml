@@ -1,0 +1,20 @@
+image:
+  alt: Das Bild konnte nicht geladen werden
+dropzone:
+  singleImage: Legen Sie das Bild hier ab
+  multipleImages: Legen Sie die Bilder hier ab
+  singleFile: Legen Sie die Datei hier ab
+  multipleFiles: Legen Sie die Dateien hier ab
+process:
+  header:
+    name: Name
+    actions: Aktionen
+  actions:
+    delete: Löschen
+    upload: Hochladen
+    cancel: Abbrechen
+  label:
+    progress: Prozess
+alert:
+  allowedFileTypes: Erlaubt sind Dateien vom Typ
+  saveFirst: Ein Bild oder eine Datei kann erst hochgeladen werden sobald das Element gespeichert wurde.

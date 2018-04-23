@@ -1,0 +1,20 @@
+image:
+  alt: The image could not be loaded
+dropzone:
+  singleImage: Drag and drop image here
+  multipleImages: Drag and drop images here
+  singleFile: Drag and drop file here
+  multipleFiles: Drag and drop files here
+process:
+  header:
+    name: Name
+    actions: Actions
+  actions:
+    delete: Delete
+    upload: Upload
+    cancel: Cancel
+  label:
+    progress: Progress
+alert:
+  allowedFileTypes: Supported data formats are
+  saveFirst: An image or a file can only be uploaded once the element is saved.

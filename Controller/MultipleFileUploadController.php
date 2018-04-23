@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Doctrine\ORM\PersistentCollection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Controller for the multiple image upload.
@@ -88,11 +90,12 @@ class MultipleFileUploadController extends Controller
      */
     private function getEntityConfigurationFromMapping($entityType)
     {
+        /** @var array $mapping */
         $mapping = $this->getParameter('liplex_multiple_file_upload.mapping');
 
         foreach ($mapping as $entity) {
             $className = substr($entity['class'], strrpos($entity['class'], '\\') + 1);
-            if ($className == $entityType) {
+            if ($className === $entityType) {
                 return $entity;
             }
         }
@@ -136,11 +139,11 @@ class MultipleFileUploadController extends Controller
         $currentField = $entity->$getterFunction();
 
         $collectionClasses = [
-            'Doctrine\ORM\PersistentCollection',
-            'Doctrine\Common\Collections\ArrayCollection',
+            PersistentCollection::class,
+            ArrayCollection::class,
         ];
 
-        if (in_array(get_class($currentField), $collectionClasses)) {
+        if (\in_array(get_class($currentField), $collectionClasses, true)) {
             $entity->$getterFunction()->add($media);
         } else {
             $setterFunction = 'set'.ucwords($field);
