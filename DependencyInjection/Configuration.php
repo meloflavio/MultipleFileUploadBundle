@@ -20,6 +20,10 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('directory')
+                    ->info('Path to store the uploaded files')
+                    ->defaultValue('../web')
+                ->end()
                 ->scalarNode('media_class')
                     ->info('Custom media class generated with the media bundle')
                     ->isRequired()

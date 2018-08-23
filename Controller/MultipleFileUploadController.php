@@ -170,7 +170,7 @@ class MultipleFileUploadController extends Controller
             throw new NotFoundHttpException('The image you requested can not be found.');
         }
 
-        $webPath = $this->get('kernel')->getRootDir().'/../web';
+        $webPath = $this->getParameter('liplex_multiple_file_upload.directory');
 
         $format = $imageProvider->getFormatName($media, 'image_upload_preview');
         $imagePath = $imageProvider->generatePublicUrl($media, $format);
@@ -225,8 +225,7 @@ class MultipleFileUploadController extends Controller
             throw new NotFoundHttpException('The file you requested can not be found.');
         }
 
-        $webPath = $this->get('kernel')->getRootDir().'/../web';
-
+        $webPath = $this->getParameter('liplex_multiple_file_upload.directory');
         $filePath = $fileProvider->generatePublicUrl($media, 'reference');
 
         $response = new BinaryFileResponse($webPath.$filePath);

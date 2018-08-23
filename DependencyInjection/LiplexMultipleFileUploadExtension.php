@@ -19,5 +19,6 @@ class LiplexMultipleFileUploadExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
         $container->setParameter('liplex_multiple_file_upload.media_class', $config['media_class']);
         $container->setParameter('liplex_multiple_file_upload.mapping', $config['mapping']);
+        $container->setParameter('liplex_multiple_file_upload.directory', $config['directory']);
     }
 }

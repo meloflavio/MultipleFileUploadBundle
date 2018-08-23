@@ -1,5 +1,5 @@
 {
-  "name": "liplex/multiple-file-upload-bundle",
+  "name": "e3n-internetagentur/multiple-file-upload-bundle",
   "type": "symfony-bundle",
   "description": "Bundle to add an AngularJS file upload field to Sonata Admin",
   "keywords": ["upload", "angular-js", "sonata"],

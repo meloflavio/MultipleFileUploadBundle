@@ -15,6 +15,7 @@ Each field that wants to use the multiple file upload has to be configured.
 
 ```
 liplex_multiple_file_upload:
+        directory: "%liplex_multiple_file_upload_path%" // Default is set to folder web
     media_class: 'Application\Sonata\MediaBundle\Entity\Media'
     mapping:
         product:
