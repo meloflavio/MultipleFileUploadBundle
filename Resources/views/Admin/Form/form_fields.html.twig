@@ -134,6 +134,7 @@
               </button>
             </div>
           </div>
+          <input type="file" class="btnUploadJs" ng-hide="true" nv-file-select="" uploader="uploader" multiple options="{url: '{{ path('api_multiple_upload_file') }}'}" /><br/>
           <span class="help-block sonata-ba-field-help">
             {% trans %}alert.allowedFileTypes{% endtrans %} {% for extension in form.vars.allowed_extensions %}
               <strong>{{ extension }}</strong>{% if not loop.last %}, {% endif %}{% endfor %}
@@ -146,4 +147,9 @@
       <div class="alert alert-info">{% trans %}alert.saveFirst{% endtrans %}</div>
     </div>
   {% endif %}
+  <script>
+    $('.well span').click(function() {
+      $('.btnUploadJs').trigger('click'); 
+    });
+  </script>
 {% endblock %}
