@@ -1,0 +1,23 @@
+image:
+  alt: A imagem não pôde ser carregada
+dropzone:
+  singleImage: Clique ou Arraste e solte a imagem aqui
+  multipleImages: Clique ou Arraste e solte as imagens aqui
+  singleFile: Clique ou Arraste e solte o arquivo aqui
+  multipleFiles: Clique ou Arraste e solte os arquivos aqui
+process:
+  header:
+    name: Nome
+    actions: Ações
+  actions:
+    delete: Excluir
+    upload: Enviar
+    cancel: Cancelar
+  label:
+    progress: Progresso
+alert:
+  wrongFormat: O formato de arquivo que você está tentando enviar não é suportado.
+  maxFileSize: O tamanho do arquivo do seu upload excede o limite permitido de
+  allowedFileTypes: Formatos de dados suportados são
+  saveFirst: Uma imagem ou um arquivo só pode ser carregado depois que o elemento for salvo.
+
